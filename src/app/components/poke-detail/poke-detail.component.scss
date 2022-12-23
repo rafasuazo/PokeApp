@@ -1,0 +1,37 @@
+@import "../../../assets/styles/variables.scss";
+
+.card{
+    width: 300px;
+    margin: auto;
+    margin-top: 20px;
+    background-color: $red;
+    border-radius: 10px;
+}
+
+.mat-mdc-card-header{
+    background-color: $white;
+    padding-top: 10px;
+    border-radius: 10px 10px 0 0;
+}
+
+.mat-mdc-card-subtitle{
+    color: $black;
+}
+
+.mat-mdc-card-avatar{
+    background-size: cover;
+}
+
+.mat-mdc-card-title{
+    text-transform: uppercase;
+    color: $black;
+}
+
+.mat-mdc-chip{
+    background-color: $black !important;
+}
+
+.chips{
+    margin-top: 10px;
+    color: $yellow !important;
+}
