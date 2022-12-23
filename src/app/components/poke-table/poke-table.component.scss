@@ -1,0 +1,72 @@
+@import "../../../assets/styles/variables.scss";
+
+.container{
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+    color: $white;
+}
+
+table {
+    min-width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+ /*.mat-header-cell{
+    color: $yellow;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+ }*/
+
+.mat-mdc-row:nth-child(even){
+    background-color: $red;
+    & .mat-mdc-cell{
+        color: $white;
+    }
+}
+
+.mat-mdc-row:nth-child(odd){
+    background-color: $white;
+    & .mat-mdc-cell{
+        color: $black;
+    }
+}
+
+.mat-mdc-cell:first-letter{
+    text-transform: uppercase;
+}
+
+.mat-mdc-row:hover{
+    cursor: pointer;
+    box-shadow: inset 0 0 0 5px $yellow;
+}
+
+::ng-deep .mat-paginator{
+    width: 80%;
+    margin: auto;
+}
+
+.mat-mdc-form-field{
+    font-size: 13px;
+    width: 20%;
+    margin-bottom: 5px;
+    padding: 10px;
+}
+
+::ng-deep.mat-mdc-form-field-label {
+    color: $white !important;
+}
+
+::ng-deep.mat-mdc-form-field-underline {
+    background-color: $white !important;
+}
+
+::ng-deep.mat-mdc-form-field-ripple {
+    background-color: $white !important;
+}
+
+input{
+    color: $white !important;
+}

@@ -1,7 +1,9 @@
 import { PokemonService } from './../../services/pokemon.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
+
 
 @Component({
   selector: 'app-poke-table',
@@ -10,12 +12,13 @@ import { MatPaginator } from '@angular/material/paginator';
 })
 export class PokeTableComponent implements OnInit {
 
-  displayedColumns: string[] = ['name', 'position', 'image']; // Columnas de la tabla de pokemons
+  displayedColumns: string[] = ['position', 'image','name']; // Columnas de la tabla de pokemons
   data: any[] = [];
   datasource = new MatTableDataSource<any>(this.data); // Data source para la tabla de pokemons
   pokemons = []; // Array de pokemons
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(private pokeService: PokemonService) { }
 
@@ -31,9 +34,9 @@ export class PokeTableComponent implements OnInit {
     this.pokeService.getPokemons(i).subscribe({
       next: (res) => {
         pokemonData = {
-          name: res.name,
           position: i,
-          image: res.sprites.front_default
+          image: res.sprites.front_default,
+          name: res.name
         };
         this.data.push(pokemonData); // Agregamos los datos de cada pokemon al array de pokemons
         this.datasource = new MatTableDataSource<any>(this.data); // Data source para la tabla de pokemons
@@ -54,5 +57,9 @@ export class PokeTableComponent implements OnInit {
     if (this.datasource.paginator) {
       this.datasource.paginator.firstPage();
     }
+  }
+
+  getRow(row: any){
+    console.log(row);
   }
 }
